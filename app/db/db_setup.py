@@ -31,7 +31,7 @@ con.sql(
 )
 con.sql(
     """
-        create or replace table raw_built_generation_capacity as 
+        create or replace table raw_installed_generation_capacity as 
         select * 
         from read_csv_auto('/workspaces/gerlectricity/smard_data/Installierte_Erzeugungsleistung_202101010000_202303312359_Year.csv')
     """

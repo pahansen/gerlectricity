@@ -1,4 +1,4 @@
-with raw_actual_power as (
+with raw_actual_power_g as (
     select * from {{ source("main", "raw_actual_power_generation") }}
 ),
 
@@ -18,7 +18,7 @@ final as (
         replace(replace("Erdgas [MWh] Calculated resolutions", '.', ''), ',', '.')::double as gas_MWh,
         replace(replace("Pumpspeicher [MWh] Calculated resolutions", '.', ''), ',', '.')::double as pump_storage_MWh,
         replace(replace("Sonstige Konventionelle [MWh] Calculated resolutions", '.', ''), ',', '.')::double as misc_conventional_MWh,
-    from raw_actual_power_generation
+    from raw_actual_power_g
 )
 
 select * from final

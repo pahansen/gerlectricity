@@ -4,3 +4,7 @@ sources:
   - name: main
     tables:
       - name: raw_actual_power_generation
+      - name: raw_actual_power_consumption
+      - name: raw_predicted_power_generation
+      - name: raw_predicted_power_consumption
+      - name: raw_installed_generation_capacity
