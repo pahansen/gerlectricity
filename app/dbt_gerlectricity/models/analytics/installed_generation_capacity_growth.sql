@@ -5,7 +5,6 @@ with installed_generation_c as (
 final as (
     select
         year(start_date) as year,
-        -- growth rate of biomass_MW, waterpower_MW, wind_offshore_MW, wind_onshore_MW, solar_MW, misc_renewables_MW, nuclear_MW, brown_coal_MW, hard_coal_MW, gas_MW, pump_storage_MW, misc_conventional_MW   by previous year
         (biomass_MW - lag(biomass_MW, 1) over (order by start_date)) / lag(biomass_MW, 1) over (order by start_date) * 100 as biomass_MW_growth_rate,
         (waterpower_MW - lag(waterpower_MW, 1) over (order by start_date)) / lag(waterpower_MW, 1) over (order by start_date) * 100 as waterpower_MW_growth_rate,
         (wind_offshore_MW - lag(wind_offshore_MW, 1) over (order by start_date)) / lag(wind_offshore_MW, 1) over (order by start_date) * 100 as wind_offshore_MW_growth_rate,
